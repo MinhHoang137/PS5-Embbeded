@@ -33,10 +33,16 @@ Khi nhận được "LMHold" → mô phỏng giữ chuột trái
 Khi nhận được "LMRel" → mô phỏng thả chuột trái
 
 💡 Mô tả hành vi
-Hành động với nút vật lý	 Chuỗi gửi từ STM32	                Hành vi máy tính
-Nhấn nhẹ rồi thả	                  "LMClick"	                Nhấn chuột trái 1 lần
-Giữ lâu rồi thả	             "LMHold" + "LMRel"	                Giữ chuột trái rồi thả
-Đang giữ	                            "LMHold"	            Giữ chuột trái (nếu vượt quá minHoldTime)
+Khi nhấn nút nối với chân PA0, STM32 bắt đầu đếm thời gian giữ nút.
+
+Nếu nhấn rồi thả nhanh (dưới 300ms), STM32 gửi chuỗi "LMClick" qua UART để mô phỏng nhấp chuột trái.
+
+Nếu giữ lâu hơn 300ms, chuỗi "LMHold" được gửi để mô phỏng giữ chuột trái.
+
+Khi thả nút sau khi giữ, chuỗi "LMRel" được gửi để mô phỏng thả chuột trái.
+
+Máy tính nhận các chuỗi này qua UART, phần mềm Python xử lý và thực hiện hành động chuột tương ứng.
+
 
 🧪 Kiểm tra hoạt động
 Mở một phần mềm như Paint, giữ nút vật lý trên STM32 → kiểm tra chuột có kéo không.
