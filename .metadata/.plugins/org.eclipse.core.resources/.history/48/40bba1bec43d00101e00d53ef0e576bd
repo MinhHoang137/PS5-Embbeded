@@ -1,0 +1,28 @@
+/*
+ * pressAndHold.h
+ *
+ *  Created on: May 31, 2025
+ *      Author: Admin
+ */
+
+#ifndef INC_PRESSANDHOLD_H_
+#define INC_PRESSANDHOLD_H_
+#include "main.h"
+
+#define minHoldTime 3000 // Minimum hold time in 0.1 milliseconds
+#define MAX_MESSAGE_LENGTH 11 // Maximum length of messages
+
+typedef struct PressAndHold
+{
+    GPIO_TypeDef* port; // GPIO port
+    uint16_t pin;          // GPIO pin number
+    char clickMes[MAX_MESSAGE_LENGTH]; // Message to send on click
+    char holdMes[MAX_MESSAGE_LENGTH];  // Message to send on hold
+    char releaseMes[MAX_MESSAGE_LENGTH]; // Message to send on release
+    uint32_t holdTime;    // Time in milliseconds to consider a press as a hold
+    bool isHolding;
+};
+
+void checkHold(PressAndHold* pah);
+
+#endif /* INC_PRESSANDHOLD_H_ */
