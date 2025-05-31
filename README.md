@@ -45,11 +45,13 @@ Máy tính nhận các chuỗi này qua UART, phần mềm Python xử lý và t
 
 
 🧪 Kiểm tra hoạt động
+
 Mở một phần mềm như Paint, giữ nút vật lý trên STM32 → kiểm tra chuột có kéo không.
 
 Xem console Python để xác nhận có nhận được đúng chuỗi UART.
 
 🔧 Gỡ lỗi
+
 Nếu không nhận được tín hiệu UART:
 
 Kiểm tra đúng cổng COM trong main.py
@@ -61,6 +63,7 @@ Nếu Python báo lỗi không mở được COM:
 Đảm bảo thiết bị không bị ứng dụng khác chiếm dụng (ví dụ: TeraTerm, PuTTY)
 
 📍 Mục tiêu tiếp theo
+
 Mở rộng để điều khiển nhiều nút khác như chuột phải, phím bàn phím, joystick
 
 Tích hợp với game engine Unity hoặc game thực tế
